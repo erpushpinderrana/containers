@@ -7,6 +7,8 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
     mv kubectl /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl
 
+RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+
 USER nick
 
 ENTRYPOINT ["kubectl"]
