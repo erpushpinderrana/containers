@@ -9,8 +9,8 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
     mv kubectl /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl
 
-RUN curl -L https://go.kubebuilder.io/dl/2.2.0/linux/amd64 | tar -xz -C /tmp/ && \
-    mv /tmp/kubebuilder_2.2.0_linux_amd64 /usr/local/kubebuilder && \
+RUN curl -L https://go.kubebuilder.io/dl/latest/linux/amd64 | tar -xz -C /tmp/ && \
+    mv /tmp/kubebuilder_master_linux_amd64 /usr/local/kubebuilder && \
     chown -R nick:nick /usr/local/kubebuilder
      
 USER nick
