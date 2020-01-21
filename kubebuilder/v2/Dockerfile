@@ -13,13 +13,15 @@ RUN curl -L https://go.kubebuilder.io/dl/latest/linux/amd64 | tar -xz -C /tmp/ &
     mv /tmp/kubebuilder_master_linux_amd64 /usr/local/kubebuilder && \
     chown -R nick:nick /usr/local/kubebuilder
      
+RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash && \
+    mv kustomize /usr/local/bin/kustomize && \
+    chmod +x /usr/local/bin/kustomize
+
 USER nick
 
 ENV GO111MODULE=on
 ENV GOPATH /home/nick/code
 ENV PATH /usr/local/go/bin:$PATH
 ENV PATH /usr/local/kubebuilder/bin:$PATH
-
-RUN go install sigs.k8s.io/kustomize/kustomize/v3
 
 CMD ["bash"]
